@@ -1,70 +1,45 @@
-// Show the Edit Profile Form
-function showEditForm() {
-    document.getElementById('edit-form').style.display = 'block';
-}
+const loginForm = document.getElementById("loginForm");
+const errorMsg = document.getElementById("errorMsg");
+const profileDiv = document.getElementById("profileDiv");
+const loginDiv = document.getElementById("loginDiv");
+const logoutBtn = document.getElementById("logoutBtn");
 
-// Save Changes and update the profile
-function saveChanges() {
-    const name = document.getElementById('edit-name').value;
-    const email = document.getElementById('edit-email').value;
-    const phone = document.getElementById('edit-phone').value;
-    const department = document.getElementById('edit-department').value;
-    const experience = document.getElementById('edit-experience').value;
-    const skills = document.getElementById('edit-skills').value;
-    const certifications = document.getElementById('edit-certifications').value;
-    const projects = document.getElementById('edit-projects').value;
-    const tasks = document.getElementById('edit-tasks').value;
+loginForm.addEventListener("submit", function(e){
+  e.preventDefault();
 
-    // Update the profile data on the page
-    document.querySelector('.profile-name').textContent = name;
-    document.querySelector('.profile-position').textContent = department;
-    document.querySelector('.profile-info .info-item:nth-child(1) p').textContent = email;
-    document.querySelector('.profile-info .info-item:nth-child(1) p').textContent = phone;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    // Hide the edit form
-    document.getElementById('edit-form').style.display = 'none';
-}
+  // إرسال البيانات للباك اند للتحقق من البريد وكلمة المرور
+  fetch("/login", {  // رابط الباك اند (تعدليه حسب السيرفر)
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.success){
+      // عرض البروفايل بعد نجاح تسجيل الدخول
+      document.getElementById("profileName").textContent = data.name;
+      document.getElementById("profileEmail").textContent = data.email;
+      document.getElementById("profileDept").textContent = data.department;
 
-// Cancel edit
-function cancelEdit() {
-    document.getElementById('edit-form').style.display = 'none';
-}
-
-// Update profile picture
-function updateProfilePicture(event) {
-    const imageUrl = URL.createObjectURL(event.target.files[0]);
-    document.getElementById('profile-picture').src = imageUrl;
-}
-
-// Save Changes and update the profile with localStorage
-function saveChanges() {
-    const name = document.getElementById('edit-name').value;
-    const email = document.getElementById('edit-email').value;
-    const phone = document.getElementById('edit-phone').value;
-    const department = document.getElementById('edit-department').value;
-
-    // Update the profile data on the page
-    document.querySelector('.profile-name').textContent = name;
-    document.querySelector('.profile-info .info-item:nth-child(1) p:nth-child(2)').textContent = email;
-    document.querySelector('.profile-info .info-item:nth-child(1) p:nth-child(3)').textContent = phone;
-    document.querySelector('.profile-position').textContent = department;
-
-    // Save the data in localStorage
-    localStorage.setItem('name', name);
-    localStorage.setItem('email', email);
-    localStorage.setItem('phone', phone);
-    localStorage.setItem('department', department);
-
-    // Hide the edit form
-    document.getElementById('edit-form').style.display = 'none';
-}
-
-// Load data from localStorage on page load
-window.onload = function() {
-    if (localStorage.getItem('name')) {
-        document.querySelector('.profile-name').textContent = localStorage.getItem('name');
-        document.querySelector('.profile-info .info-item:nth-child(1) p:nth-child(2)').textContent = localStorage.getItem('email');
-        document.querySelector('.profile-info .info-item:nth-child(1) p:nth-child(3)').textContent = localStorage.getItem('phone');
-        document.querySelector('.profile-position').textContent = localStorage.getItem('department');
+      loginDiv.style.display = "none";
+      profileDiv.style.display = "block";
+      errorMsg.textContent = "";
+    } else {
+      errorMsg.textContent = "Invalid email or password.";
     }
-}
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    errorMsg.textContent = "Server error. Please try again later.";
+  });
+});
+
+logoutBtn.addEventListener("click", function(){
+  loginDiv.style.display = "block";
+  profileDiv.style.display = "none";
+  loginForm.reset();
+  errorMsg.textContent = "";
+});
