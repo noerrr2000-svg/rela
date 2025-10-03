@@ -23,111 +23,31 @@
   </header>
 
 
+
+
+
     <!-- Profile Section -->
-    <section class="profile-section">
-        <div class="profile-container">
-            <div class="profile-card">
-                <div class="profile-header">
-                    <label for="profile-image">
-                        <img src="img/default-profile.jpg" alt="Profile Picture" class="profile-image" id="profile-picture">
-                    </label>
-                    <input type="file" id="profile-image" accept="image/*" style="display:none" onchange="updateProfilePicture(event)">
-                    <h2 class="profile-name">Mohammad Bin Abdullah</h2>
-                    <p class="profile-position">Urban Planning Engineer</p>
-                </div>
+<div id="loginDiv" class="card">
+  <h2>Employee Login</h2>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Enter your official email" required>
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <div id="errorMsg"></div>
+    <button type="submit">Login</button>
+  </form>
+</div>
 
-                <!-- Profile Information (Single Section) -->
-                <div class="profile-info">
-                    <div class="info-item">
-                        <h3>Personal Information</h3>
-                        <p><strong>Name:</strong> Mohammad Bin Abdullah</p>
-                        <p><strong>Email:</strong> mohammed@example.com</p>
-                        <p><strong>Phone:</strong> +966123456789</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Work Experience</h3>
-                        <p><strong>Role:</strong> Urban Planning Engineer</p>
-                        <p><strong>Organization:</strong> Hail Municipality</p>
-                        <p><strong>Years of Experience:</strong> 5 Years</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Skills</h3>
-                        <ul>
-                            <li>Urban Planning</li>
-                            <li>Project Management</li>
-                            <li>Team Leadership</li>
-                            <li>GIS (Geographical Information Systems)</li>
-                        </ul>
-                    </div>
-                    <div class="info-item">
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li>Certified Urban Planner</li>
-                            <li>Project Management Professional (PMP)</li>
-                            <li>GIS Specialist Certificate</li>
-                        </ul>
-                    </div>
-                    <div class="info-item">
-                        <h3>Current Projects</h3>
-                        <p>Development of Hail Corniche</p>
-                        <p>Expansion of Road Networks in Hail</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Upcoming Tasks</h3>
-                        <ul>
-                            <li>Prepare design for the new parks in Hail</li>
-                            <li>Coordinate with contractors for road repair projects</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Edit Button -->
-                <button class="edit-btn" onclick="showEditForm()">Edit Profile</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Edit Profile Form (Multiple Sections) -->
-    <div class="edit-form" id="edit-form">
-        <h3>Edit Profile</h3>
-        <form>
-            <label for="edit-name">Name:</label>
-            <input type="text" id="edit-name" value="Mohammad Bin Abdullah">
-            
-            <label for="edit-email">Email:</label>
-            <input type="email" id="edit-email" value="mohammed@example.com">
-            
-            <label for="edit-phone">Phone:</label>
-            <input type="text" id="edit-phone" value="+966123456789">
-
-            <label for="edit-department">Department:</label>
-            <select id="edit-department">
-                <option value="Engineering">Urban Planning</option>
-                <option value="HR">Human Resources</option>
-                <option value="Finance">Finance</option>
-            </select>
-
-            <label for="edit-experience">Work Experience:</label>
-            <textarea id="edit-experience">Urban Planning Engineer at Hail Municipality, 5 years experience</textarea>
-
-            <label for="edit-skills">Skills:</label>
-            <textarea id="edit-skills">Urban Planning, Project Management, GIS, Team Leadership</textarea>
-
-            <label for="edit-certifications">Certifications:</label>
-            <textarea id="edit-certifications">Certified Urban Planner, PMP, GIS Specialist</textarea>
-
-            <label for="edit-projects">Current Projects:</label>
-            <textarea id="edit-projects">Development of Hail Corniche, Road Network Expansion</textarea>
-
-            <label for="edit-tasks">Upcoming Tasks:</label>
-            <textarea id="edit-tasks">Design new parks, Coordinate road repair projects</textarea>
-
-            <div class="form-buttons">
-                <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
-                <button type="button" class="cancel-btn" onclick="cancelEdit()">Cancel</button>
-            </div>
-        </form>
-    </div>
+<div id="profileDiv" class="profile-card" style="display:none;">
+  <div class="profile-header">
+    <img src="avatar.png" alt="Profile Picture" class="avatar">
+    <h2 id="profileName"></h2>
+    <p id="profileDept"></p>
+  </div>
+  <div class="profile-body">
+    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+</div>
 
 
 
@@ -183,6 +103,7 @@
      <script src="js/profile-script.js"></script>
 </body>
 </html>
+
 
 
 
