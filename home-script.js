@@ -16,7 +16,6 @@ window.addEventListener("scroll", function () {
     }
   }
 });
-
 // تأثير التمرير فوق الأزرار
 const ctaButton = document.querySelector(".cta-button");
 ctaButton.addEventListener("mouseenter", function () {
@@ -37,4 +36,5 @@ ctaButton.addEventListener("click", function () {
     ctaButton.innerText = "سجل الآن";  // إعادة النص بعد فترة قصيرة
     ctaButton.style.backgroundColor = "#38bdf8";
   }, 2000);
+
 });
