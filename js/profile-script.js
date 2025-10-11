@@ -10,14 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
   passField.value = sessionStorage.getItem("password") || "";
 
   // زر إظهار / إخفاء الباسوورد
+
+  // جلب العناصر
+  const passField = document.getElementById("empPassword");
   const toggleBtn = document.getElementById("togglePass");
+
+  // تحقق إذا كان الحقل من النوع password أو text
   toggleBtn.addEventListener("click", () => {
     if (passField.type === "password") {
-      passField.type = "text";
-      toggleBtn.textContent = "🙈";
+      passField.type = "text";  // عرض كلمة المرور
+      toggleBtn.textContent = "🙈";  // تغيير الأيقونة
     } else {
-      passField.type = "password";
-      toggleBtn.textContent = "👁";
+      passField.type = "password";  // إخفاء كلمة المرور
+      toggleBtn.textContent = "👁";  // إعادة الأيقونة
     }
   });
 });
@@ -27,3 +32,4 @@ function logout() {
   sessionStorage.clear();
   window.location.href = "index.html";
 }
+
