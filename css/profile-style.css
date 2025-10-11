@@ -18,57 +18,6 @@ body {
 
 
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-   background: linear-gradient(135deg, #b3e0ff, #00bfff);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #ddd;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1d4ed8;
-}
-
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-  padding: 6px 10px;
-  transition: 0.3s;
-}
-
-.nav-links li a:hover{
-color:#333;
-background:#F5F5DC;
-border-radius:4px;
-}
-
-
-.nav-links li a.active {
-  color: #555;
-  background: none;
-
-}
-
-
-
-
 /* Footer */
 
 .footer {
@@ -182,5 +131,6 @@ border-radius:4px;
   box-shadow: 0 10px 25px rgba(51, 153, 255, 0.3);
 
 }
+
 
 
