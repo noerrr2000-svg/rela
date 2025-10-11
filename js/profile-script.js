@@ -1,19 +1,14 @@
-// عرض البيانات من sessionStorage أو بيانات تجريبية
 document.addEventListener("DOMContentLoaded", () => {
+  // جلب العناصر
   const nameField = document.getElementById("empName");
   const emailField = document.getElementById("empEmail");
   const passField = document.getElementById("empPassword");
+  const toggleBtn = document.getElementById("togglePass");
 
-  // جلب بيانات من التسجيل إن وجدت
+  // عرض البيانات من sessionStorage أو بيانات تجريبية
   nameField.value = sessionStorage.getItem("username") || "Employee Name";
   emailField.value = sessionStorage.getItem("email") || "example@amanah.gov.sa";
-  passField.value = sessionStorage.getItem("password") || "";
-
-  // زر إظهار / إخفاء الباسوورد
-
-  // جلب العناصر
-  const passField = document.getElementById("empPassword");
-  const toggleBtn = document.getElementById("togglePass");
+  passField.value = sessionStorage.getItem("password") || "";  // أو ضع قيمة فارغة
 
   // تحقق إذا كان الحقل من النوع password أو text
   toggleBtn.addEventListener("click", () => {
@@ -32,4 +27,3 @@ function logout() {
   sessionStorage.clear();
   window.location.href = "index.html";
 }
-
