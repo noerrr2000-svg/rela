@@ -1,31 +1,27 @@
-
-
-
 document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // يمنع تحديث الصفحة التلقائي
+  e.preventDefault(); // منع التحديث التلقائي للصفحة
 
-      // جمع بيانات المستخدم
-      const data = {
-        username: document.getElementById("username").value.trim(),
-        email: document.getElementById("Email").value.trim(),
-        password: document.getElementById("password").value.trim()
-      };
+  // جمع بيانات المستخدم
+  const data = {
+    username: document.getElementById("username").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    password: document.getElementById("password").value.trim(),
+  };
 
-      // التحقق من الحقول
-      if (!data.username || !data.email || !data.password) {
-        alert("Please fill in all fields.");
-        return;
-      }
+  // التحقق من البيانات
+  if (!data.username || !data.email || !data.password) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-      // حفظ بيانات الدخول (مثلاً لتجربة فقط)
-      sessionStorage.setItem('auth', '1');
-      sessionStorage.setItem('username', data.username);
+  // حفظ البيانات في sessionStorage
+  sessionStorage.setItem('auth', '1');
+  sessionStorage.setItem('username', data.username);
+  sessionStorage.setItem('email', data.email); // إذا أردت تخزين الإيميل أيضًا
 
-      // عرض البيانات في الكونسول (تقدرين تشوفينها في المتصفح)
-      console.log("Form data:", data);
+  // عرض البيانات في الكونسول (للتأكد)
+  console.log("Form data:", data);
 
-      // تحويل المستخدم للصفحة الرئيسية
-      window.location.href = 'home.html';
-    });
-
-
+  // تحويل الصفحة إلى home.html
+  window.location.href = 'home.html'; 
+});
