@@ -1,45 +1,29 @@
-const loginForm = document.getElementById("loginForm");
-const errorMsg = document.getElementById("errorMsg");
-const profileDiv = document.getElementById("profileDiv");
-const loginDiv = document.getElementById("loginDiv");
-const logoutBtn = document.getElementById("logoutBtn");
+// عرض البيانات من sessionStorage أو بيانات تجريبية
+document.addEventListener("DOMContentLoaded", () => {
+  const nameField = document.getElementById("empName");
+  const emailField = document.getElementById("empEmail");
+  const passField = document.getElementById("empPassword");
 
-loginForm.addEventListener("submit", function(e){
-  e.preventDefault();
+  // جلب بيانات من التسجيل إن وجدت
+  nameField.value = sessionStorage.getItem("username") || "Employee Name";
+  emailField.value = sessionStorage.getItem("email") || "example@amanah.gov.sa";
+  passField.value = sessionStorage.getItem("password") || "";
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  // إرسال البيانات للباك اند للتحقق من البريد وكلمة المرور
-  fetch("/login", {  // رابط الباك اند (تعدليه حسب السيرفر)
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password })
-  })
-  .then(response => response.json())
-  .then(data => {
-    if(data.success){
-      // عرض البروفايل بعد نجاح تسجيل الدخول
-      document.getElementById("profileName").textContent = data.name;
-      document.getElementById("profileEmail").textContent = data.email;
-      document.getElementById("profileDept").textContent = data.department;
-
-      loginDiv.style.display = "none";
-      profileDiv.style.display = "block";
-      errorMsg.textContent = "";
+  // زر إظهار / إخفاء الباسوورد
+  const toggleBtn = document.getElementById("togglePass");
+  toggleBtn.addEventListener("click", () => {
+    if (passField.type === "password") {
+      passField.type = "text";
+      toggleBtn.textContent = "🙈";
     } else {
-      errorMsg.textContent = "Invalid email or password.";
+      passField.type = "password";
+      toggleBtn.textContent = "👁";
     }
-  })
-  .catch(err => {
-    console.error("Error:", err);
-    errorMsg.textContent = "Server error. Please try again later.";
   });
 });
 
-logoutBtn.addEventListener("click", function(){
-  loginDiv.style.display = "block";
-  profileDiv.style.display = "none";
-  loginForm.reset();
-  errorMsg.textContent = "";
-});
+// زر تسجيل الخروج
+function logout() {
+  sessionStorage.clear();
+  window.location.href = "index.html";
+}
