@@ -70,133 +70,61 @@ border-radius:4px;
 
 
 /* Profile Section */
-.profile-section {
-    margin-top: 80px;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+  background-color: #f6f9fc;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
 }
 
 .profile-container {
-    background-color: #fff;
-    border-radius: 80px;
-    width: 950px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    text-align: left;
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.profile-header {
-    margin-bottom: 2rem;
-    text-align: center;
+.profile-container h2 {
+  text-align: center;
+  color: #1a73e8;
+  margin-bottom: 25px;
 }
 
-.profile-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    cursor: pointer;
+.profile-card label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
 }
 
-.profile-name {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #007bb5;
+.profile-card input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 15px;
 }
 
-.profile-position {
-    color: #666;
-    margin-bottom: 1rem;
+.password-box {
+  display: flex;
+  align-items: center;
 }
 
-.profile-info {
-    margin-top: 2rem;
+.password-box button {
+  margin-left: 10px;
+  padding: 8px 10px;
+  border: none;
+  background: #1a73e8;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.info-item {
-    margin-bottom: 1.5rem;
+.password-box button:hover {
+  background: #125abc;
 }
-
-.info-item h3 {
-    font-size: 1.5rem;
-    color: #007bb5;
-    margin-bottom: 0.5rem;
-}
-
-.info-item p, .info-item ul {
-    font-size: 1rem;
-    color: #666;
-}
-
-.edit-btn {
-    background-color: #007bb5;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1.5rem;
-}
-
-.edit-btn:hover {
-    background-color: #005f87;
-}
-
-/* Edit Form */
-.edit-form {
-    display: none;
-    background: linear-gradient(135deg, #dbeafe, #f0f9ff);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.edit-form label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.edit-form input, .edit-form select, .edit-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.form-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.save-btn, .cancel-btn {
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-.save-btn {
-    background-color: #007bb5;
-    color: white;
-}
-
-.cancel-btn {
-    background-color: #ff4d4d;
-    color: white;
-}
-
-.save-btn:hover {
-    background-color: #005f87;
-}
-
-.cancel-btn:hover {
-    background-color: #ff7f7f;
-}
-
 
 
 
@@ -313,4 +241,5 @@ border-radius:4px;
   background: linear-gradient(135deg, #00BFFF, #87CEFA); /* تدرج السماوي عند التمرير */
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(51, 153, 255, 0.3);
+
 }
