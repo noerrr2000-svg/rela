@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
       // جمع بيانات المستخدم
       const data = {
         username: document.getElementById("username").value.trim(),
-        email: document.getElementById("email").value.trim(),
+        email: document.getElementById("Example@amanah.gov.sa").value.trim(),
         password: document.getElementById("password").value.trim()
       };
 
@@ -27,3 +27,4 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
       // تحويل المستخدم للصفحة الرئيسية
       window.location.href = 'home.html';
     });
+
