@@ -1,3 +1,27 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // امنعي فتح الصفحة بدون تسجيل
+  if (!sessionStorage.getItem('auth')) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  // عرض اسم المستخدم لو موجود عنصر بالصفحة
+  const nameEl = document.getElementById('userName');
+  if (nameEl) nameEl.textContent = sessionStorage.getItem('username') || 'User';
+
+  // زر الخروج (لو عندك زر بكلاس logout-btn)
+  const logoutBtn = document.querySelector('.logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.clear();
+      window.location.href = 'index.html';
+    });
+  }
+});
+
+
+
+
 // عند تحميل الصفحة، تحقق مما إذا كانت هناك حاجة لتشغيل الفيديو
 window.addEventListener("scroll", function () {
   let video = document.querySelector("video");
@@ -38,3 +62,4 @@ ctaButton.addEventListener("click", function () {
   }, 2000);
 
 });
+
