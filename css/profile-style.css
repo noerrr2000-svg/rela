@@ -1,19 +1,11 @@
-/* Reset */
-* { margin:0;
- padding:0;
- box-sizing:border-box;
- font-family:'Cairo', sans-serif; transition:0.3s;
- }
-
-
-body {
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar */
 
 /* Navbar */
 .navbar {
@@ -21,7 +13,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-   background: linear-gradient(135deg, #b3e0ff, #00bfff);
+   background:linear-gradient(135deg, #b3e0ff, #00bfff); 
   position: fixed;
   width: 100%;
   top: 0;
@@ -62,6 +54,8 @@ border-radius:4px;
   background: none;
 
 }
+
+
 
 
 
@@ -300,6 +294,7 @@ body {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(51, 153, 255, 0.3);
 }
+
 
 
 
